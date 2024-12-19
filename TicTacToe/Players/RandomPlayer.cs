@@ -1,8 +1,7 @@
 ﻿using CSharpFunctionalExtensions;
 using TicTacToe.Boards;
-using TicTacToe.Players;
 
-namespace TicTacToe;
+namespace TicTacToe.Players;
 
 public class RandomPlayer : Player
 {
