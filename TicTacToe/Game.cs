@@ -25,7 +25,7 @@ public class Game
         this.display = display;
     }
 
-    public void Play()
+    public IPlayer Play()
     {
         this.board.DisplayGameBoard();
 
@@ -50,7 +50,7 @@ public class Game
             if (gameResult.HasValue)
             {
                 this.display.WriteLine(gameResult.Value);
-                break;
+                return currentPlayer;
             }
 
             this.SwitchPlayer();
