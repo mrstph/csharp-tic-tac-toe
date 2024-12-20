@@ -33,4 +33,9 @@ public class HumanPlayer : Player
 
         return Result.Success(new PlayerMove(targetRow, targetColumn));
     }
+
+    public override async Task<Result<PlayerMove>> GetNextMoveAsync()
+    {
+        return await Task.FromResult(GetNextMove());
+    }
 }

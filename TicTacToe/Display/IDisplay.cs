@@ -1,4 +1,5 @@
-﻿namespace TicTacToe.Display;
+﻿
+namespace TicTacToe.Display;
 
 public interface IDisplay
 {

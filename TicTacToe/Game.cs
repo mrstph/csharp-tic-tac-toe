@@ -25,13 +25,13 @@ public class Game
         this.display = display;
     }
 
-    public IPlayer Play()
+    public async Task<IPlayer> Play()
     {
         this.board.DisplayGameBoard();
 
         while (true)
         {
-            Result<PlayerMove> playerMoves = this.currentPlayer.GetNextMove();
+            Result<PlayerMove> playerMoves = await this.currentPlayer.GetNextMoveAsync();
             if (playerMoves.IsFailure)
             {
                 this.display.WriteLine(playerMoves.Error);

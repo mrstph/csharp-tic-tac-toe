@@ -10,7 +10,7 @@ namespace TicTacToeTest
     public class GameTest
     {
         [Fact]
-        public void Play_TwoRandomPlayers_AssertGameResult()
+        public async Task Play_TwoRandomPlayers_AssertGameResult()
         {
             // Arrange
             FakePlayer fakePlayer1 = new FakePlayer(
@@ -23,7 +23,7 @@ namespace TicTacToeTest
             Game game = new Game(new DebugDisplay(), fakePlayer1, fakePlayer2);
 
             // Act
-            IPlayer expectedWinner = game.Play();
+            IPlayer expectedWinner = await game.Play();
 
             // Assert
             expectedWinner.Icon
@@ -54,5 +54,10 @@ namespace TicTacToeTest
 
         public override Result<PlayerMove> GetNextMove()
             => moves.Dequeue();
+
+        public override async Task<Result<PlayerMove>> GetNextMoveAsync()
+        {
+            return await Task.FromResult(GetNextMove());
+        }
     }
 }
